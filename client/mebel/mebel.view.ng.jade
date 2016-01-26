@@ -1,0 +1,31 @@
+.mebel.container
+    .col-md-12
+        form.form-horizontal.col-md-5(name='form'  ng-submit='save()' novalidate)
+            formly-form(form='form' model='model' fields='fields' options='options')
+            .form-group(ng-class="{'has-error' : form.category.$invalid && form.category.$touched}")
+                label.col-md-5.control-label Название категории *
+                .col-md-7
+                    ui-select(data-ng-model='model.category' data-required=true   theme='bootstrap'  name='category' required)
+                        ui-select-match(placeholder='Выберите категорию') {{$select.selected.name}}
+                        ui-select-choices( repeat='t in states_list | filter: $select.search')
+                            div {{t.name}}
+            .form-group
+                    .col-md-offset-5.col-md-7
+                        button.btn.btn-primary(type='submit') Submit
+    hr
+    //form(action='action', method='post', role='form' name='frm')
+      legend Form Title
+      .form-group
+        label(for='')
+        input.form-control(type='text', name='test', id='', placeholder='Input...' ng-model='model.testError' required)
+      button.btn.btn-primary(type='submit') Submit
+    
+
+    hr
+    .col-md-12
+        ul.col-md-4
+            li(ng-repeat='m in mebel')
+                p {{m.name}}
+                    button.btn.btn-danger(ng-click='remove(m)') remove
+
+    pre form  {{form | json}}

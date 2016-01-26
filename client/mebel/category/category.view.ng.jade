@@ -1,0 +1,15 @@
+.category.container
+    .col-md-12
+        form.form-horizontal.col-md-5(name='form'  ng-submit='save()' novalidate)
+            formly-form(form='form' model='model' fields='fields' options='options')
+                .form-group
+                    .col-md-offset-5.col-md-7
+                        button.btn.btn-primary(type='submit') Submit
+    hr
+    .col-md-12
+        ul(ng-repeat='cat in category')
+            li
+                p {{cat.name}}
+                    button.btn.btn-danger(ng-click='remove(cat)') delete
+
+    pre category {{category | json}}

@@ -1,0 +1,7 @@
+<div class="mebel container"><div class="col-md-12"><form name="form" ng-submit="save()" novalidate="novalidate" class="form-horizontal col-md-5"><formly-form form="form" model="model" fields="fields" options="options"></formly-form><div ng-class="{'has-error' : form.category.$invalid &amp;&amp; form.category.$touched}" class="form-group"><label class="col-md-5 control-label">Название категории *</label><div class="col-md-7"><ui-select data-ng-model="model.category" data-required="data-required" theme="bootstrap" name="category" required="required"><ui-select-match placeholder="Выберите категорию">{{$select.selected.name}}</ui-select-match><ui-select-choices repeat="t in states_list | filter: $select.search"><div>{{t.name}}</div></ui-select-choices></ui-select></div></div><div class="form-group"><div class="col-md-offset-5 col-md-7"><button type="submit" class="btn btn-primary">Submit</button></div></div></form></div><hr/><!--form(action='action', method='post', role='form' name='frm')legend Form Title
+.form-group
+  label(for='')
+  input.form-control(type='text', name='test', id='', placeholder='Input...' ng-model='model.testError' required)
+button.btn.btn-primary(type='submit') Submit
+
+--><hr/><div class="col-md-12"><ul class="col-md-4"><li ng-repeat="m in mebel"><p>{{m.name}}<button ng-click="remove(m)" class="btn btn-danger">remove</button></p></li></ul></div><pre>form  {{form | json}}</pre></div>
